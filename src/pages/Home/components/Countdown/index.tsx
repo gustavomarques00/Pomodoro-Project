@@ -6,7 +6,7 @@ import { CountdownContainer, Separator } from './styles'
 export function Countdown() {
   const {
     activeCycle,
-    acticeCycleId,
+    activeCycleId,
     markCurrentCycleAsFinished,
     amountSecondsPassed,
     setSecondsPassed,
@@ -21,7 +21,7 @@ export function Countdown() {
       interval = setInterval(() => {
         const secondsDifference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (secondsDifference >= totalSeconds) {
@@ -40,7 +40,7 @@ export function Countdown() {
   }, [
     activeCycle,
     totalSeconds,
-    acticeCycleId,
+    activeCycleId,
     markCurrentCycleAsFinished,
     setSecondsPassed,
   ])
